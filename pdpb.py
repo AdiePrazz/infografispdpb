@@ -310,7 +310,7 @@ try:
 
             with col_bar_tot:
                 with st.container(border=True):
-                    st.markdown("### Grafik Total Pemilih")
+                    st.metric("### Grafik Total Pemilih")
                     st.caption("Grafik perbandingan total pemilih laki-laki & perempuan pada triwulan terpilih pada Kabupaten Malang.")
                     
                     data_khusus = pd.DataFrame({
