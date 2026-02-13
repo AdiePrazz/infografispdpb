@@ -388,52 +388,6 @@ try:
                                 dengan rincian **{int(curr_laki):,}** Laki-laki dan **{int(curr_perempuan):,}** Perempuan. 
                                 Terdapat perubahan sebesar **{perubahan_kata}** pada total pemilih dengan triwulan sebelumnya."""
                             )
-            # CHART - TREN DPT
-            # with st.container(border=True):
-            #     st.markdown("### Trendline Jumlah Pemilih Laki & Perempuan per Triwulan")
-            #     query = """
-            #         SELECT 
-            #             t.id_triwulan,
-            #             t.judul,
-            #             SUM(ts.laki) AS total_laki,
-            #             SUM(ts.perempuan) AS total_perempuan
-            #         FROM triwulan_sebelumnya ts
-            #         JOIN triwulan t ON ts.id_triwulan = t.id_triwulan
-            #         GROUP BY t.id_triwulan, t.judul
-            #         ORDER BY t.id_triwulan
-            #     """
-
-            #     df_tren = pd.read_sql(query, engine)
-            #     df_tren['total_pemilih'] = df_tren['total_laki'] + df_tren['total_perempuan']
-
-            #     df_melt = df_tren.melt(
-            #     id_vars=["judul"],
-            #     value_vars=["total_pemilih", "total_laki", "total_perempuan"],
-            #     var_name="Kategori",
-            #     value_name="Jumlah"
-            #     )
-
-            #     fig = px.line(
-            #         df_melt,
-            #         x="judul",
-            #         y="Jumlah",
-            #         color="Kategori",
-            #         markers=True,
-            #         title="Trend Jumlah Pemilih per Triwulan",
-            #     )
-
-            #     # Atur tampilan agar miring 45 derajat
-            #     fig.update_layout(
-            #         xaxis_title="Triwulan",
-            #         yaxis_title="Jumlah Pemilih",
-            #         xaxis=dict(tickangle=-45),
-            #         legend_title="Kategori",
-            #         hovermode="x unified",
-            #         template="plotly_white"
-            #     )
-            #     fig.update_yaxes(range=[df_melt["Jumlah"].min() * 0.98,
-            #             df_melt["Jumlah"].max() * 1.02])
-            #     st.plotly_chart(fig, use_container_width=True)
             
             # CHART - PEMILIH BARU & PERBAIKAN DATA
             col_A_bar, col_B_metric = st.columns([2,4])
