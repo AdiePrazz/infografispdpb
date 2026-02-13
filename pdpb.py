@@ -300,8 +300,8 @@ try:
             prev_perempuan = df_pdpb_before['perempuan'].sum()
             prev_total = prev_laki + prev_perempuan
 
-            curr_laki = df_pdpb['jumlah_pemilih_laki'].sum()
-            curr_perempuan = df_pdpb['jumlah_pemilih_perempuan'].sum()
+            curr_laki = df_pdpb['jumlah_pemilih_laki'].sum() if not df_pdpb.empty else 0
+            curr_perempuan = df_pdpb['jumlah_pemilih_perempuan'].sum() if not df_pdpb.empty else 0
             curr_total = curr_laki + curr_perempuan
 
             delta_laki = ((curr_laki - prev_laki) / prev_laki * 100) if prev_laki else 0
@@ -345,7 +345,7 @@ try:
                         st.metric(
                             "Total Pemilih keseluruhan", 
                             f"{int(curr_total):,}".replace(",", "."),
-                            delta=f"{int(selisih_tot):,} orang".replace(",", "."),
+                            delta=f"{int(selisih_tot):,} orang".replace(",", ".") if 'selisih_tot' in locals() else None,
                             # delta=f"{delta_total:+.2f}% ({int(selisih_tot):,} orang)".replace(",", "."),
                             delta_color="normal"
                         )
