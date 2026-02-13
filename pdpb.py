@@ -239,6 +239,7 @@ st.set_page_config(page_title="Infografis PDPB KPU Kabupaten Malang", layout="wi
 st.header("Infografis PDPB KPU Kabupaten Malang")
 st.markdown("---")
 
+st.tabs(["📊 Data Triwulan PDPB", "ℹ️ Tentang Aplikasi"])
 # --- Sidebar ---
 st.sidebar.write(f"<span style='font-weight:bold;'>Pilih data triwulan atau upload file MODEL-A REKAP PDPB Kabupaten Malang.</span>", unsafe_allow_html=True)
 # engine = create_engine(f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}')
@@ -310,7 +311,7 @@ try:
 
             with col_bar_tot:
                 with st.container(border=True):
-                    st.metric("### Grafik Total Pemilih")
+                    st.markdown("### Grafik Total Pemilih")
                     st.caption("Grafik perbandingan total pemilih laki-laki & perempuan pada triwulan terpilih pada Kabupaten Malang.")
                     
                     data_khusus = pd.DataFrame({
@@ -550,6 +551,9 @@ try:
                     )
                     fig_funnel.update_layout(paper_bgcolor="#ffffff")
                     st.plotly_chart(fig_funnel, use_container_width=True)
+            
+            #--- METRIC DETAIL TMS ---
+            
             
             col_detail_tms_1, col_detail_tms_2 ,col_detail_tms_3, col_detail_tms_4, col_detail_tms_5, col_detail_tms_6 = st.columns([1,1,1,1,1,2])
             with col_detail_tms_1:
